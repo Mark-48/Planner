@@ -3,13 +3,13 @@
 	
 	padding: 1em;
 	margin: 1em;
-    width: 200px;
-    border: groove;
-    border-radius: 1em;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
+    	width: 200px;
+    	border: groove;
+    	border-radius: 1em;
+    	display: flex;
+    	flex-direction: column;
+    	align-content: center;
+    	align-items: center;
 
 }
 
@@ -27,9 +27,9 @@
 main{
 
 	display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 10em;
+    	flex-direction: row;
+    	justify-content: center;
+    	margin-bottom: 10em;
 }
 
 .img-control-btn{
