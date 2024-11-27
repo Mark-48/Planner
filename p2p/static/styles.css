@@ -1,0 +1,44 @@
+
+.cI{
+	
+	padding: 1em;
+	margin: 1em;
+    width: 200px;
+    border: groove;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+}
+
+.form-control{
+    height: 100%;
+    width: 100%;
+    max-width: 220px;
+}
+
+.img-control{
+	display: flex; 
+	justify-content: center;
+
+}
+main{
+
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10em;
+}
+
+.img-control-btn{
+	display: flex; 
+	justify-content: center;
+
+
+}
+.img-update{
+    width: 30%;
+    height: 20%;
+}

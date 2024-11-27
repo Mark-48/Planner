@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+   <meta charset="UTF-8">
+   <title>Календарик</title>
+   <link rel="icon" href="static/logotip.ico" type="image/x-icon">
+   <link rel="stylesheet" type="text/css" href="static/styles.css">
+
+  </head>
+  <body>
+    <script async>
+
+      function pst() {
+        const form = document.getElementById('form');
+        alert('ЗДАРОВ БАНДИТЫ');
+        const data = {
+            "pn": form.querySelector('[name="pn"]').value,
+            "vt": form.querySelector('[name="vt"]').value,
+            "sr": form.querySelector('[name="sr"]').value,
+            "cht": form.querySelector('[name="cht"]').value,
+            "pt": form.querySelector('[name="pt"]').value,
+            "sb": form.querySelector('[name="sb"]').value,
+            "vs": form.querySelector('[name="vs"]').value
+          };
+ 
+        console.log(data)
+        const Http = new XMLHttpRequest();
+        const url='http://127.0.0.1:5000/data_post';
+        Http.open("POST", url);
+        Http.setRequestHeader("Content-Type", "application/json");
+        Http.send(JSON.stringify(data));
+
+      }
+      function listing() {
+        const form = document.getElementById('form');
+
+        request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:5000/data_get', true);
+        request.send();
+        request.onload = function (){
+          //alert(JSON.parse(request.responseText));
+          var response = JSON.parse(request.responseText);
+          console.log(response['cht']);
+          form.querySelector('[name="pn"]').value = response['pn'];
+          form.querySelector('[name="vt"]').value = response['vt'] ;
+          form.querySelector('[name="sr"]').value = response['sr'];
+          form.querySelector('[name="cht"]').value = response['cht'];
+          form.querySelector('[name="pt"]').value = response['pt'];
+          form.querySelector('[name="sb"]').value = response['sb'];
+          form.querySelector('[name="vs"]').value = response['vs'];
+        }
+
+      }
+
+      function a(argument) {
+        const form = document.getElementById('form');
+        form.querySelector('[name="pn"]').value = ' ';
+        form.querySelector('[name="vt"]').value = ' ' ;
+        form.querySelector('[name="sr"]').value = ' ';
+        form.querySelector('[name="cht"]').value = ' ';
+        form.querySelector('[name="pt"]').value = ' ';
+        form.querySelector('[name="sb"]').value = ' ';
+        form.querySelector('[name="vs"]').value = ' ';
+      }
+
+    </script>
+
+
+
+
+
+
+
+
+
+    
+    <div class ='img-control'>
+      <img src="static/logo.png">
+    </div>
+
+    <main>
+      <form method="POST" style="display: flex; height: 500px;" id='form'>
+        
+        <div class="cI" style="background-color: indianred;">
+          <h3>Пн</h3>
+          <hr>          
+          
+            <textarea class = 'form-control' name='pn'>{{pn}}</textarea>          
+        
+        </div>
+
+
+        <div class="cI" style="background-color: coral;">
+          <h3>Вт</h3>
+          <hr>        
+          
+            <textarea class = 'form-control' name='vt'>{{vt}}</textarea>          
+        
+        </div>
+
+        
+        <div class="cI" style="background-color: #ffd25b;">
+          <h3>Ср</h3>
+          <hr>                    
+            <textarea class = 'form-control' name='sr'>{{sr}}</textarea>                
+        </div>
+
+        
+        <div class="cI" style="background-color: #c8dd00;">
+          <h3>Чт</h3>
+          <hr>          
+          
+            <textarea class = 'form-control' name='cht'>{{cht}}</textarea>          
+        
+        </div>
+
+        
+        <div class="cI" style="background-color: #00dd89;">
+          <h3>Пт</h3>
+          <hr>         
+          
+            <textarea class = 'form-control' name='pt'>{{pt}}</textarea>          
+        
+        </div>
+
+        
+        <div class="cI" style="background-color: #91f6ff;">
+          <h3>Сб</h3>
+          <hr>         
+          
+            <textarea class = 'form-control' name='sb'>{{sb}}</textarea>        
+        
+        </div>
+
+        
+        <div class="cI" style="background-color: #d2b2ff;">
+          <h3>Вс</h3>
+          <hr>        
+            <textarea class = 'form-control' name='vs'>{{vs}}</textarea>              
+        </div>
+      </form>
+    </main>
+
+    <div class ='img-control-btn'>
+      <form method="POST" action="/data_post">
+        <div class='tst' onclick="pst()" >
+          <img src="static/button.png" >
+        </div>
+
+        <div class='tst' onclick="listing()"  >
+          <img src="static/updt.png" style="width: 30em;">
+        </div>
+        <div class='tst' onclick="a()"  >
+          <img src="static/delt.png" style="width: 30em;">
+        </div>
+      
+    </div>
+    
+    
+  </body>
+</html  
